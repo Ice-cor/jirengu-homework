@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ch-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的导航</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header></header>
+    <main id="keyboard"></main>
+    <footer></footer>
+</body>
+<script>
+    var keys = {
+        0: ['q','w','e','r','t','y','u','i','o','p'],
+        1: ['a','s','d','f','g','h','j','k','l'],
+        2: ['z','x','c','v','b','n','m',],
+        length: 3
+    }
+    var hash = {
+        q: 'qq.com',
+        w: 'webbo.com',
+        e: 'ele.com',
+        r: 'renren.com',
+        t: 'tianya.com',
+        y: 'youtube.com',
+        u: 'uc.com',
+        i: 'iqiyi.com',
+        o: 'opera.com',
+        p: undefined,
+        a: 'acfun.com',
+        s: 'sohu.com',
+        d: 'dangdang.com'
+
+
+    }
+    //hashInLocalStorage = JSON.parse(localStorage.getItem('newSrc') || 'null') 这是老师的写法，没有值的话返回空对象，但我的做法是没有设置的时候就没有LocalStorage，有设置的时候才有。
+    var hashInLocalStorage
+    if(hashInLocalStorage){
+        hashInLocalStorage = JSON.parse(localStorage.getItem('newSrc') || '')
+        hash = hashInLocalStorage
+    }
+    
+    var keyboard = document.getElementById('keyboard')
+
+    for(var i = 0; i < keys.length; i++){
+        var div1 = document.createElement('div')
+        keyboard.appendChild(div1)
+        for(var o = 0; o < keys[i].length; o++){
+            var kbd = document.createElement('kbd')
+            kbd.textContent = keys[i][o]
+            div1.appendChild(kbd)
+            var button = document.createElement('button')
+            kbd.appendChild(button)
+            button.textContent = '编辑'
+            button.id = keys[i][o]
+            button.onclick = function(event){
+                var key = event.target.id
+                console.log(key)
+                var newSrc = prompt('请输入新网址')
+                // console.log(x)
+                hash[key] = newSrc
+                localStorage.setItem('newSrc',JSON.stringify(hash))
+                console.log(hash)
+            }
+        }
+    }
+
+    document.onkeydown = function(event){
+        // console.log(event.key)
+        var src = hash[event.key]
+        window.open("http://"+src,'_blank');
+        // location.href="http://"+src
+    }
+
+</script>
+</html>
