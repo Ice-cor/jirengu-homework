@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  #canvas {
+    background-color: white;
+    display: block;
+    position: relative;
+  }
+  .tool {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  #eraser {
+    display: block;
+  }
+  #brush {
+    display: none;
+  }
+  .eraserEnabled #eraser {
+    display: none;
+  }
+  .eraserEnabled #brush {
+    display: block;
+  }
+  .eraserSmall {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    z-index: 5;
+    border: 1px solid black;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) ;
+    display: block;
+  }
