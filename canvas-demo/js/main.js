@@ -22,12 +22,13 @@ var download = document.getElementById('download')
 
 eraserWrap.onclick = function () {
     eraserEnabled = true
-
+    eraserWrap.classList.add('eraserActive')
 }
 
 
 brushWrap.onclick = function () {
     eraserEnabled = false
+    eraserWrap.classList.remove('eraserActive')
     var brushes = document.getElementById('brushes')
     // var brushCurrentSize = document.getElementById('brushCurrentSize')
     brushWrap.classList.toggle('brushActive')
@@ -79,6 +80,7 @@ colorsWrap.onclick = function (e) {
         // e.stopPropagation();
         //阻止冒泡事件，否则会触发上一层的onclick
         eraserEnabled = false
+        eraserWrap.classList.remove('eraserActive')
         var target = e.target
         var id = target.id
 
@@ -184,10 +186,10 @@ function listenToMouse(canvas) {
             mouseOn = true
             if (eraserEnabled) {
                 ctx.clearRect(x - 10, y - 10, 20, 20)
-                var eraserSmall = document.getElementById('eraserSmall')
-                eraserSmall.className = "eraserSmall"
-                eraserSmall.style.left = x + "px"
-                eraserSmall.style.top = y + "px"
+                // var eraserSmall = document.getElementById('eraserSmall')
+                // eraserSmall.className = "eraserSmall"
+                // eraserSmall.style.left = x + "px"
+                // eraserSmall.style.top = y + "px"
             } else {
                 drawCircle(x, y, Math.PI * 2)
             }
@@ -206,9 +208,9 @@ function listenToMouse(canvas) {
             if (mouseOn) {
                 if (eraserEnabled) {
                     ctx.clearRect(x - 5, y - 5, 10, 10)
-                    var eraserSmall = document.getElementById('eraserSmall')
-                    eraserSmall.style.left = x + "px"
-                    eraserSmall.style.top = y + "px"
+                    // var eraserSmall = document.getElementById('eraserSmall')
+                    // eraserSmall.style.left = x + "px"
+                    // eraserSmall.style.top = y + "px"
                 } else {
                     drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
                     lastPoint = newPoint
@@ -218,7 +220,7 @@ function listenToMouse(canvas) {
         }
         canvas.ontouchend = function () {
             mouseOn = false
-            eraserSmall.className = ""
+            // eraserSmall.className = ""
         }
     } else {
         //非触摸设备
@@ -232,10 +234,10 @@ function listenToMouse(canvas) {
             mouseOn = true
             if (eraserEnabled) {
                 ctx.clearRect(x - 15, y - 15, 30, 30)
-                var eraserSmall = document.getElementById('eraserSmall')
-                eraserSmall.className = "eraserSmall"
-                eraserSmall.style.left = x + "px"
-                eraserSmall.style.top = y + "px"
+                // var eraserSmall = document.getElementById('eraserSmall')
+                // eraserSmall.className = "eraserSmall"
+                // eraserSmall.style.left = x + "px"
+                // eraserSmall.style.top = y + "px"
             } else {
                 drawCircle(x, y, Math.PI * 2)
             }
@@ -255,9 +257,9 @@ function listenToMouse(canvas) {
             if (mouseOn) {
                 if (eraserEnabled) {
                     ctx.clearRect(x - 10, y - 10, 20, 20)
-                    var eraserSmall = document.getElementById('eraserSmall')
-                    eraserSmall.style.left = x + "px"
-                    eraserSmall.style.top = y + "px"
+                    // var eraserSmall = document.getElementById('eraserSmall')
+                    // eraserSmall.style.left = x + "px"
+                    // eraserSmall.style.top = y + "px"
                 } else {
                     drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
                     lastPoint = newPoint
@@ -268,7 +270,7 @@ function listenToMouse(canvas) {
         }
         canvas.onmouseup = function () {
             mouseOn = false
-            eraserSmall.className = ""
+            // eraserSmall.className = ""
         }
     }
 }
