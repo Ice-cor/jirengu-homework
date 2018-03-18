@@ -3,20 +3,68 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>canvas</title>
     <link rel="stylesheet" href="./css/style.css">
-    
+    <script src="//at.alicdn.com/t/font_595686_0kdxtpxkr19k9.js"></script>
 </head>
+<style type="text/css">
+    .icon {
+        width: 30px;
+        height: 30px;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+    }
+</style>
 
 <body>
+
     <canvas id="canvas" width="300" height="300"></canvas>
-    <div id="eraserSmall"></div>
+    <div id="eraserSmall" style="display: none"></div>
     <div class="tool" id="tool">
-        <button id="eraser">橡皮擦</button>
-        <button id="brush">画笔</button>
+        <div id="eraserWrap" class="eraserWrap">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-eraser"></use>
+            </svg>
+        </div>
+        <ul id="brushWrap" class="brushWrap">
+            <li id="brushCurrentSize">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-pen"></use>
+                </svg>
+            </li>
+            <ul id="brushes" class="brushes">
+                <li class="thin" id="thin">1px</li>
+                <li class="nomal active" id="nomal">5px</li>
+                <li class="thick" id="thick">10px</li>
+            </ul>
+        </ul>
+        <ul id="colorsWrap" class="colorsWrap">
+            <li id="currentColor" class="currentColor">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-color"></use>
+                </svg>
+            </li>
+            <ul id="colors" class="colors">
+                <li class="black active" id="black"></li>
+                <li class="pink" id="pink"></li>
+                <li class="yellow" id="yellow"></li>
+            </ul>
+        </ul>
+        <div id="trash" class="trash">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-bu-trash-o"></use>
+            </svg>
+        </div>
+        <div class="download" id="download">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-download"></use>
+            </svg>
+        </div>
     </div>
+    <script src="./js/main.js"></script>
 </body>
-<script src="./js/main.js"></script>
+
 </html>
