@@ -3,3 +3,6 @@
 
 
 [键盘导航](https://ice-cor.github.io/jirengu-homework/nav/index.html)
+
+
+[无缝轮播](https://ice-cor.github.io/jirengu-homework/banner-2/index.html)
