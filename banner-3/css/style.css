@@ -1,0 +1,60 @@
+*{margin: 0;padding: 0}
+*{box-sizing: border-box}
+
+
+.window{
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    margin: 50px auto;
+    position: relative;
+}
+
+.images{
+    display: flex;
+    transition: all 0.5s;
+}
+
+.buttons{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.buttons>button{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    margin: 0 5px;
+    color: black;
+}
+
+.buttons button.active{
+    background: black;
+    color: white;
+}
+
+.goBtnWrap>button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    opacity: 0.5;   
+    background: black;
+    color: white;
+    width: 20px;
+    height: 30px;   
+}
+.goBtnWrap>button:hover{
+    opacity: 0.7; 
+}
+.goPrev{
+    left: 10px;
+}
+.goNext{
+    right: 10px;
+}
