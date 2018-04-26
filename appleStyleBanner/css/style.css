@@ -1,0 +1,76 @@
+*{margin: 0;padding: 0}
+*{box-sizing: border-box}
+
+
+.window{
+    width: 920px;
+    overflow: hidden;
+    margin: 50px auto;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: url('http://demo.tutorialzine.com/2009/11/beautiful-apple-gallery-slideshow/img/panel.jpg') bottom center repeat-x #fff;
+}
+
+.images{
+    display: flex;
+    transition: all 0.5s;
+}
+
+.buttons{
+    /* position: absolute; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%); */
+}
+.buttons>button{
+    width: 60px;
+    height: 45px;
+    /* border-radius: 50%; */
+    background: transparent;
+    border: none;
+    /* margin: 0 5px;
+    color: black; */
+    cursor: pointer;
+}
+
+.buttons button.active{
+    background: url('http://demo.tutorialzine.com/2009/11/beautiful-apple-gallery-slideshow/img/active_bg.png');
+    overflow: hidden;
+}
+.buttons>button{
+   display: flex;
+   justify-content: center;
+   align-content: center;
+}
+
+.goBtnWrap{
+    display: none;
+}
+.window:hover .goBtnWrap{
+    display: block
+}
+.goBtnWrap>button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    opacity: 0.5;   
+    background: black;
+    color: white;
+    width: 20px;
+    height: 30px;   
+    cursor: pointer;
+}
+.goBtnWrap>button:hover{
+    opacity: 0.7; 
+}
+.goPrev{
+    left: 10px;
+}
+.goNext{
+    right: 10px;
+}
