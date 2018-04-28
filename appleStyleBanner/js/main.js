@@ -129,3 +129,5 @@ function stateListen(){
         }
     })
 }
+
+console.dir($('li'))
